@@ -1,4 +1,5 @@
-const searchbtn= document.getElementById('search-btn');
+const asideDiv = document.getElementById('aside-div');
+const searchBtn= document.getElementById('search-btn');
 
 function getApi() {
     // fetch request gets a list of all the repos for the node.js organization
@@ -12,3 +13,18 @@ function getApi() {
         console.log(data)   
     });
 }
+
+const createCityHistory = function() {
+
+}
+
+const createWeatherDiv = function() {
+    document.createElement('divContainer');
+    document.createElement('h2');
+    document.createElement('p');
+    document.createElement('p');
+    document.createElement('p');
+}
+
+
+searchBtn.addEventListener('click', onclick);
