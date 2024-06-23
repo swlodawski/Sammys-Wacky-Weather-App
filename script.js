@@ -3,7 +3,7 @@ const searchBtn= document.getElementById('search-btn');
 
 function getApi() {
     // fetch request gets a list of all the repos for the node.js organization
-    const requestUrl = '`https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={b792be78f2bfe310ca378c0e295b739b}`';
+    const requestUrl = '`https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={50d9fa3c2b681d0729030adef69fc4b6}`';
   
     fetch(requestUrl)
       .then(function (response) {
