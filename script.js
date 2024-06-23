@@ -14,11 +14,11 @@ function getApi() {
     });
 }
 
-const createCityHistory = function() {
+const createCityHistory = function(data) {
 
 }
 
-const createWeatherDiv = function() {
+const createWeatherDiv = function(data) {
    const weatherContainer = document.createElement('divContainer');
     const cityDate = document.createElement('h2');
     const cityTemp = document.createElement('p');
@@ -26,8 +26,8 @@ const createWeatherDiv = function() {
     const cityHumidity = document.createElement('p');
 };
 
-const createWeatherCards = function() {
-    
+const createWeatherCards = function(data) {
+
 }
 
 
