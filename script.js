@@ -1,4 +1,6 @@
 const asideDiv = document.getElementById('aside-div');
+const weatherContainerDiv = document.getElementById('weather-container-div');
+const weatherCardDiv = document.getElementById('weather-card-div');
 const searchBtn= document.getElementById('search-btn');
 
 function getApi() {

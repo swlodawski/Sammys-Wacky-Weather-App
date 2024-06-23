@@ -3,3 +3,14 @@
     box-sizing: border-box;
     margin: auto;
 }
+
+main {
+    display: flex;
+}
+
+header {
+    font-size: 40px;
+    font-weight: bold;
+    background-color: blue;
+    
+}
