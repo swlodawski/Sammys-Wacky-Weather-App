@@ -19,11 +19,15 @@ const createCityHistory = function() {
 }
 
 const createWeatherDiv = function() {
-    document.createElement('divContainer');
-    document.createElement('h2');
-    document.createElement('p');
-    document.createElement('p');
-    document.createElement('p');
+   const weatherContainer = document.createElement('divContainer');
+    const cityDate = document.createElement('h2');
+    const cityTemp = document.createElement('p');
+    const cityWind = document.createElement('p');
+    const cityHumidity = document.createElement('p');
+};
+
+const createWeatherCards = function() {
+    
 }
 
 
