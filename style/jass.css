@@ -12,5 +12,24 @@ header {
     font-size: 40px;
     font-weight: bold;
     background-color: blue;
-    
+    width: 100%;
+    margin-top: 0px;
+    text-align: center;
+}
+
+div {
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 100%;
+}
+
+#aside-div {
+    width: 30%;
+    flex-wrap: wrap;
+    padding: 7px;
+    margin-left: 0%;
+}
+
+h2 {
+   
 }

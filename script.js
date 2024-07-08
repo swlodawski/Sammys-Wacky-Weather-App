@@ -2,10 +2,11 @@ const asideDiv = document.getElementById('aside-div');
 const weatherContainerDiv = document.getElementById('weather-container-div');
 const weatherCardDiv = document.getElementById('weather-card-div');
 const searchBtn= document.getElementById('search-btn');
-
+const cityHistory = JSON.parse(localStorage.getItem('cities')) || [];
+const apiKey = '50d9fa3c2b681d0729030adef69fc4b6';
 function getApi() {
     // fetch request gets a list of all the repos for the node.js organization
-    const requestUrl = '`https://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={50d9fa3c2b681d0729030adef69fc4b6}`';
+    const requestUrl = '`https://api.openweathermap.org={}`';
   
     fetch(requestUrl)
       .then(function (response) {
