@@ -22,21 +22,16 @@ function getApi(cityName = null) {
   }
     const requestUrl = `https:api.openweathermap.org/geo/1.0/direct?q${cityName}&appid=${apiKey}`;
     updateLocStorage(cityName);
-    
+
     fetch(requestUrl)
       .then(function (response) {
         return response.json();
       })
       .then(function (data) {
-        console.log(data)   
+        const latitude = data[0].lat;
+        const longitude = data[0].long;
+        getForecast(latitude, longitude, cityName);
     });
-}
-
-
-
-
-const createCityHistory = function(data) {
-
 }
 
 
