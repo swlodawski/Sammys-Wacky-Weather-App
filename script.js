@@ -39,12 +39,12 @@ function getForecast (latitude, longitude, cityName) {
   const requestUrlFarenheit = `https:api.openweathermap.org/geo/1.0/direct?q${cityName}&appid=${apiKey}`;
   Promise.all([
     fetch(requestUrlCelcius).then(function (response) {
-      return response.json();
+      return response.json(),
     })
     fetch(requestUrlFarenheit).then(function (response) {
       return response.json();
     })
-  ])
+  ]).then([dataCelcius, dataFarenheit]) 
 }
 
 
