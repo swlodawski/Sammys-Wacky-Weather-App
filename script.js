@@ -14,9 +14,15 @@ function updateLocStorage(cityName) {
   }
 }
 
-function getApi() {
+function getApi(cityName = null) {
+
+  if(!cityName) {
+    cityName = document.getElementById('searchBtn').value;
+
+  }
     const requestUrl = `https:api.openweathermap.org/geo/1.0/direct?q${cityName}&appid=${apiKey}`;
-  
+    updateLocStorage(cityName);
+    
     fetch(requestUrl)
       .then(function (response) {
         return response.json();
