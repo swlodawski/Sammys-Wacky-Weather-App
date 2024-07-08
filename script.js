@@ -34,6 +34,19 @@ function getApi(cityName = null) {
     });
 }
 
+function getForecast (latitude, longitude, cityName) {
+  const requestUrlCelcius = `https:api.openweathermap.org/geo/1.0/direct?q${cityName}&appid=${apiKey}`;
+  const requestUrlFarenheit = `https:api.openweathermap.org/geo/1.0/direct?q${cityName}&appid=${apiKey}`;
+  Promise.all([
+    fetch(requestUrlCelcius).then(function (response) {
+      return response.json();
+    })
+    fetch(requestUrlFarenheit).then(function (response) {
+      return response.json();
+    })
+  ])
+}
+
 
 
 
