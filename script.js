@@ -14,18 +14,17 @@ function updateLocStorage(cityName) {
   }
 }
 
-// function getApi() {
-//     // fetch request gets a list of all the repos for the node.js organization
-//     const requestUrl = '`https://api.openweathermap.org={}`';
+function getApi() {
+    const requestUrl = `https:api.openweathermap.org/geo/1.0/direct?q${cityName}&appid=${apiKey}`;
   
-//     fetch(requestUrl)
-//       .then(function (response) {
-//         return response.json();
-//       })
-//       .then(function (data) {
-//         console.log(data)   
-//     });
-// }
+    fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data)   
+    });
+}
 
 
 
