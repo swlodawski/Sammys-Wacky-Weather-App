@@ -2,7 +2,8 @@ const asideDiv = document.getElementById('aside-div');
 const weatherContainerDiv = document.getElementById('weather-container-div');
 const weatherCardDiv = document.getElementById('weather-card-div');
 const searchBtn= document.getElementById('search-btn');
-const cityHistory = JSON.parse(localStorage.getItem('cities')) || [];
+const citiesArray = JSON.parse(localStorage.getItem('cities')) || [];
+const cityHistory = document.getElementById('city-history');
 const apiKey = '50d9fa3c2b681d0729030adef69fc4b6';
 
 
@@ -62,7 +63,24 @@ const createWeatherDiv = function(data) {
 
 const createWeatherCards = function(data) {
 
+};
+
+
+function renderSearchHistory() {
+  cityHistory.innerHTML = '';
+
+  citiesArray.forEach(city => {
+    const buttonEl = document.createElement('button');
+    buttonEl.textContent = city;
+    buttonEl.setAttribute('class', 'btn btn-secondary m-1');
+    buttonEl.addEventListener('click', function() {
+      getApi(city);
+    });
+   cityHistory.append(buttonEl);
+  })
 }
 
+renderSearchHistory();
 
-searchBtn.addEventListener('click', onclick);
+
+searchBtn.addEventListener('click', () => getApi());
