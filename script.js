@@ -21,7 +21,7 @@ function getApi(cityName = null) {
     cityName = document.getElementById('searchBtn').value;
 
   }
-    const requestUrl = `https:api.openweathermap.org/geo/1.0/direct?q${cityName}&appid=${apiKey}`;
+    const requestUrl = `https://api.openweathermap.org/geo/1.0/direct?q${cityName}&appid=${apiKey}`;
     updateLocStorage(cityName);
 
     fetch(requestUrl)
@@ -35,30 +35,38 @@ function getApi(cityName = null) {
     });
 }
 
-function getForecast (latitude, longitude, cityName) {
-  const requestUrlCelcius = `https:api.openweathermap.org/geo/1.0/direct?q${cityName}&appid=${apiKey}`;
-  const requestUrlFarenheit = `https:api.openweathermap.org/geo/1.0/direct?q${cityName}&appid=${apiKey}`;
+function getForecast (lat, lon, cityName) {
+  const requestUrlCelcius = `https://api.openweathermap.org/data/2.5/forcast?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  const requestUrlFarenheit = `https://api.openweathermap.org/data/2.5/forcast?lat=${lat}&lon=${lon}&units=imperial&appid=${apiKey}`;
+
   Promise.all([
-    fetch(requestUrlCelcius).then(function (response) {
-      return response.json(),
-    })
-    fetch(requestUrlFarenheit).then(function (response) {
-      return response.json();
-    })
-  ]).then([dataCelcius, dataFarenheit]) 
+    fetch(requestUrlCelcius).then(response => response.json()),
+    fetch(requestUrlFarenheit).then(response => response.json())
+  ]).then(([dataCelcius, dataFarenheit]) => {
+    renderCurrentWeather(dataFarenheit, dataCelcius, cityName);
+    renderWeeklyHistory(dataFarenheit, dataCelcius, cityName);
+  });
 }
 
+function renderCurrentWeather(currentWeatherFarenheit, currentWeatherCelcius, cityName) {
+  displayCurrentWeather.innerHTML = '';
+
+  const weatherContainer = document.createElement('divContainer');
+  const cityDate = document.createElement('h2');
+  const cityTemp = document.createElement('p');
+  const cityWind = document.createElement('p');
+  const cityHumidity = document.createElement('p');
 
 
+  weatherContainer.append(cityDate);
+  weatherContainer.append(cityTemp);
+  weatherContainer.append(cityWind);
+  weatherContainer.append(cityHumidity);
 
-
-
+  weatherContainerDiv.append(weatherContainer);
+}
 const createWeatherDiv = function(data) {
-   const weatherContainer = document.createElement('divContainer');
-    const cityDate = document.createElement('h2');
-    const cityTemp = document.createElement('p');
-    const cityWind = document.createElement('p');
-    const cityHumidity = document.createElement('p');
+
 };
 
 const createWeatherCards = function(data) {
