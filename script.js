@@ -52,6 +52,7 @@ function renderCurrentWeather(currentWeatherFarenheit, currentWeatherCelcius, ci
   displayCurrentWeather.innerHTML = '';
 
   const weatherContainer = document.createElement('divContainer');
+  weatherContainer.setAttribute('class', 'border');
   const cityDate = document.createElement('h2');
   const cityTemp = document.createElement('p');
   const cityWind = document.createElement('p');
@@ -65,13 +66,37 @@ function renderCurrentWeather(currentWeatherFarenheit, currentWeatherCelcius, ci
 
   weatherContainerDiv.append(weatherContainer);
 }
-const createWeatherDiv = function(data) {
 
-};
 
-const createWeatherCards = function(data) {
+function renderWeeklyWeather(forcastFarenheit, forcastCelcius) {
+  weeklyForecast.innerHTML = '';
 
-};
+  const dates = [...new Set(forcastCelcius.list.map(item => item.dt_txt.split('')[0]))].slice(0,5);
+
+  dates.forEach(date => {
+    const dailyForecastCelcius = forcastCelcius.list.find(item => item.dt_txt.startsWith(date));
+    const dailyForecastFarenheit = forcastFarenheit.list.find(item => item.dt_txt.startsWith(date));
+
+    const weatherCard = document.createElement('div');
+    weatherCard.setAttribute('class', 'card');
+    const cityDate = document.createElement('h2');
+    const cityTemp = document.createElement('p');
+    const cityWind = document.createElement('p');
+    const cityHumidity = document.createElement('p');
+  
+    dayOfWeek.textContent = dayjs(date).format('dddd');
+    temperature.textContent = `Temp: ${dailyForecastCelcius.main.temp} C/ ${dailyForecastFarenheit.main.temp} F`;
+    wind.textContent = `Wind: ${dailyForecastCelcius.wind.speed} m/s ${dailyForecastFarenheit.wind.speed} mph`;
+    humidity.textContent = `Humidity: ${dailyForecastCelcius.main.humidity} %`;
+    
+    weatherCard.append(dayOfWeek);
+    weatherCard.append(cityTemp);
+    weatherCard.append(cityWind);
+    weatherCard.append(cityHumidity);
+  
+    weatherCardDiv.append(weatherCard); 
+  });
+}
 
 
 function renderSearchHistory() {
