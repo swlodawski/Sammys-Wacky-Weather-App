@@ -11,15 +11,16 @@
 <body>
 <header>WEATHER DASHBOARD</header>
 <main>
-<div class="div" id="aside-div">
+    <div>
+<div id="search-box">
     <h2>Search for a city:</h2>
-    <input type="text" id="city-search"><br>
-    <button id="search-btn">SEARCH</button>
+<input id="search-bar" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-def">
+<button id="search-button" class="btn btn-success mt-3">SEARCH</button>
     <div id="city-history"></div>
 </div>
-
-<div class="div" id="weather-container-div"></div>
-<div class="div" id="weather-card-div"></div>
+</div>
+<div id="current-weather"></div>
+<div id="week-forecast"></div>
 
 
 </main>
